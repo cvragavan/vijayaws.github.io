@@ -1,0 +1,269 @@
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Vijayaragavan C</title>
+
+	<link rel="shortcut icon" href="assets/images/aws.jpg">
+	
+	<!-- Bootstrap -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icon font -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+</head>
+<body style="">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="1">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="assets/images/aws1.jpg" alt="">
+			<span class="title">Vijayaragavan C</span>
+			<span class="tagline">AWS - Windows - Linux</span>
+			<span class="tagline"></span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="About.html">About</a></li>
+					<!--<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="sidebar-left.html">Left Sidebar</a></li>
+							<li><a href="sidebar-right.html">Right Sidebar</a></li>
+							<li><a href="single.html">Blog Post</a></li>
+						</ul>
+					</li>-->
+					<li class="active"><a href="Contact.html">Contact</a></li>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+	
+	<h3 class="widget-title">Create the EFS and mount it into EC2 instance</h3>
+<a href="assets/images/efsdiag.jpg" class="gal"><img src="assets/images/efsdiag.jpg" alt=""></a><br>
+	
+<p><strong>Step 1:</strong> Now we are going to create a Network File System using AWS EFS and will store the files in the EFS. So first we will create an Amazon EFS file system, launch a Linux virtual machine on Amazon EC2, mount the file system, create a files. Click to open the EFS in the AWS Management Console.</p>
+<a href="assets/images/aws/efs/image001.jpg" class="gal"><img src="assets/images/aws/efs/image001.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 2:</strong> In the Amazon EFS console, click Create file system.</p>
+<a href="assets/images/aws/efs/image002.jpg" class="gal"><img src="assets/images/aws/efs/image002.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 3:</strong> Choose the VPC,subnets and security group to configure file system access and click Next Step.</p>
+<a href="assets/images/aws/efs/image003.jpg" class="gal"><img src="assets/images/aws/efs/image003.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 4:</strong> Click Next Step.</p>
+<a href="assets/images/aws/efs/image004.jpg" class="gal"><img src="assets/images/aws/efs/image004.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 5:</strong> Configure optional settings and click Next Step.</p>
+<a href="assets/images/aws/efs/image005.jpg" class="gal"><img src="assets/images/aws/efs/image005.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 6:</strong> I kept all are as default. Click Next Step.</p>
+<a href="assets/images/aws/efs/image006.jpg" class="gal"><img src="assets/images/aws/efs/image006.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 7:</strong> Review and create and click Create File System.</p>
+<a href="assets/images/aws/efs/image007.jpg" class="gal"><img src="assets/images/aws/efs/image007.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 8:</strong> Now we can see the below file system has been created.</p>
+<a href="assets/images/aws/efs/image008.jpg" class="gal"><img src="assets/images/aws/efs/image008.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 9:</strong> To access your file system, you mount the file system using the standard Linux mount command and the file system’s DNS name. Once you’ve mounted, you can work with the files and directories in your file system just like you would with a local file system. Amazon EFS uses the NFSv4.1 protocol. So click the Amazon EC2 mount instructions(from loacl VPC) and followup the instructions.</p>
+<a href="assets/images/aws/efs/image009.jpg" class="gal"><img src="assets/images/aws/efs/image009.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 10:</strong> As of now there is no drive attached in the instance as per the below screenshot.From the Amazon EC2 mount instructions window you can read through the Setting up your EC2 instance section. This section walks you through the steps to install the nfs client onto your EC2 instance. The nfs client is already installed on the EC2 instance you launched so you can move down to the next step</p>
+<a href="assets/images/aws/efs/image010.jpg" class="gal"><img src="assets/images/aws/efs/image010.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 11:</strong> Create a directory directory on your instance.</p>
+<a href="assets/images/aws/efs/image011.jpg" class="gal"><img src="assets/images/aws/efs/image011.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 12:</strong> To mount the above the file systems, Run the below commands as per the instructions.</p>
+<a href="assets/images/aws/efs/image012.jpg" class="gal"><img src="assets/images/aws/efs/image012.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 13:</strong> See the below file system has been created successfully by running the above command. so you can verify it by create a test file in your new file system.</p>
+<a href="assets/images/aws/efs/image013.jpg" class="gal"><img src="assets/images/aws/efs/image013.jpg" alt=""></a>
+<br>
+<br>
+
+	<h3 class="widget-title">Create the EBS Volume and mount it into EC2 instance</h3>
+<a href="assets/images/ebsvol.jpg" class="gal"><img src="assets/images/ebsvol.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 1:</strong> Click the Volume on EC2 Console to create a volume.</p>
+<a href="assets/images/aws/ebs/image001.jpg" class="gal"><img src="assets/images/aws/ebs/image001.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 2:</strong> Click Create Volume.</p>
+<a href="assets/images/aws/ebs/image002.jpg" class="gal"><img src="assets/images/aws/ebs/image002.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 3:</strong> Choose the Volume Type and allocate the volume Size and give the Tags as Dev. Click Create Volume.</p>
+<a href="assets/images/aws/ebs/image003.jpg" class="gal"><img src="assets/images/aws/ebs/image003.jpg" alt=""></a>
+
+<a href="assets/images/aws/ebs/image004.jpg" class="gal"><img src="assets/images/aws/ebs/image004.jpg" alt=""></a><br>
+<br>
+<br>
+<p><strong>Step 4:</strong> You can see the below EBS volume has been created. So select the volume and go to actions and attach to your EC2 instance.</p>
+<a href="assets/images/aws/ebs/image005.jpg" class="gal"><img src="assets/images/aws/ebs/image005.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 5:</strong> After attached your EBS volume to your instance you can see the volume as xvdf in your EC2.<br>
+Note: Before formating your volume you need to check if the volume has any data using the following command,<br>
+<strong>sudo file -s /dev/xvdf</strong><br>
+If the above command output shows “/dev/xvdf: data”, it means your volume is empty.</p>
+<a href="assets/images/aws/ebs/image006.jpg" class="gal"><img src="assets/images/aws/ebs/image006.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 6:</strong> Now Format the volume to ext4 file system using the following command,<br>
+<strong>sudo mkfs -t ext4 /dev/xvdf</strong>.</p>
+<a href="assets/images/aws/ebs/image007.jpg" class="gal"><img src="assets/images/aws/ebs/image007.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 7:</strong> Create a directory of your choice to mount our new ext4 volume in your instance. I am using the name “data” <br>
+<strong>sudo mkdir /data</strong>
+Now mounted your volume to data drive using following commands<br>
+<strong>sudo mount /dev/xvdf /newvolume/</strong> <br>.</p>
+<a href="assets/images/aws/ebs/image008.jpg" class="gal"><img src="assets/images/aws/ebs/image008.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 8:</strong> Now See below volume has been attached successfully in your EC2 instance.</p>
+<a href="assets/images/aws/ebs/image009.jpg" class="gal"><img src="assets/images/aws/ebs/image009.jpg" alt=""></a>
+<br>
+<br>
+<h3 class="widget-title">EBS Automount On Reboot</h3>
+<br>
+<br>
+<p><strong>Step 9:</strong> By default on every reboot the  EBS volumes other than root volume will get unmounted. To enable automount, you need to make an entry in the <strong>/etc/fstab</strong> file. Open /etc/fstab file and make an entry in the following format<br>
+</p>
+<a href="assets/images/aws/ebs/image010.jpg" class="gal"><img src="assets/images/aws/ebs/image010.jpg" alt=""></a>
+<br>
+<br>
+<p><strong>Step 10:</strong> Once added the entry you can reboot your instance and make sure your volume should be mounted in your EC2 instance.</p>
+<a href="assets/images/aws/ebs/image011.jpg" class="gal"><img src="assets/images/aws/ebs/image011.jpg" alt=""></a>
+	
+	
+	
+
+	
+	
+	
+	
+
+
+
+
+
+						
+						
+						
+			
+
+				</div>
+			
+		 <!-- /row comments -->
+		<div class="clearfix"></div>
+
+		<!-- /container -->
+
+</main>
+
+<footer id="footer" class="topspace">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					Vijayaragavan C
+					<p>+91 9791558457<br>
+						<a href="mailto:#">ragavancv@gmail.com</a><br>
+						<br>
+						No.3, Hari Avenue, Ganesan Street, Sambantham Nagar, Kundrathure, Chennai - 69, Tamil Nadu, India.
+					</p>	
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<!--<a href=""><i class="fa fa-twitter fa-2"></i></a>-->
+						<a href="https://www.linkedin.com/in/vijayaragavan-c-928b2349/"><i class="fa fa-linkedin fa-2"></i></a>
+						
+						<a href="https://www.facebook.com/vijaya.r.c.5"><i class="fa fa-facebook fa-2"></i></a>
+					</p>
+				</div>
+			</div>
+
+			
+
+			
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p>All Rights Reserved</p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						 
+						Design: <a href="http://www.cvijay.com" rel="designer">Vijayaragavan C</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/js/template.js"></script>
+
+
+</body></html>
